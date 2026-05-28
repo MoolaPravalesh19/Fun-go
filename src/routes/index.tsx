@@ -65,8 +65,10 @@ function Index() {
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand text-primary-foreground font-bold">F</span>
             <span className="text-xl font-display">Funngro</span>
           </a>
-          <nav className="hidden gap-8 text-sm md:flex">
-            {["Earn", "Stories", "For Brands", "Arcade", "SheLancer", "About", "Blog"].map(n => (
+          <nav className="hidden gap-6 text-sm md:flex">
+            <Link to="/teen" className="rounded-full bg-brand/15 px-3 py-1 text-brand">For Teens</Link>
+            <Link to="/company" className="rounded-full px-3 py-1 text-muted-foreground hover:text-foreground">For Companies</Link>
+            {["Stories", "Arcade", "Blog"].map(n => (
               <a key={n} href={`#${n.toLowerCase()}`} className="text-muted-foreground hover:text-foreground">{n}</a>
             ))}
           </nav>
