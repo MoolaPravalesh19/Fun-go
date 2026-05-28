@@ -1,17 +1,41 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Funngro — Get paid by brands you already love" },
-      { name: "description", content: "70 lakh young Indians earn from real brand campaigns on Funngro. Brand promotion, content, referrals, surveys. Paid in UPI. Free, forever." },
+      { title: "Funngro — Earn from real brand campaigns | India's #1 teen earning app" },
+      {
+        name: "description",
+        content:
+          "70 lakh young Indians earn from real brand campaigns on Funngro — promotion, content, referrals, surveys & micro-tasks. Free, paid in UPI. Featured on Shark Tank India S2.",
+      },
+      { name: "keywords", content: "funngro, earn money online india, teen jobs, student earning app, brand campaigns, micro influencer india, UPI payouts" },
       { property: "og:title", content: "Funngro — Get paid by brands you already love" },
-      { property: "og:description", content: "Real brands. Real rupees. Every day. Featured on Shark Tank India." },
+      { property: "og:description", content: "Real brands. Real rupees. Every day. Featured on Shark Tank India S2." },
+      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "Funngro — Get paid by brands you already love" },
+      { name: "twitter:description", content: "70 lakh young Indians earn from real brand campaigns on Funngro." },
     ],
     links: [
+      { rel: "canonical", href: "/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MobileApplication",
+          name: "Funngro",
+          applicationCategory: "FinanceApplication",
+          operatingSystem: "Android, iOS",
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.2", ratingCount: "70000" },
+          offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+        }),
+      },
     ],
   }),
   component: Index,
@@ -41,8 +65,10 @@ function Index() {
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand text-primary-foreground font-bold">F</span>
             <span className="text-xl font-display">Funngro</span>
           </a>
-          <nav className="hidden gap-8 text-sm md:flex">
-            {["Earn", "Stories", "For Brands", "Arcade", "SheLancer", "About", "Blog"].map(n => (
+          <nav className="hidden gap-6 text-sm md:flex">
+            <Link to="/teen" className="rounded-full bg-brand/15 px-3 py-1 text-brand">For Teens</Link>
+            <Link to="/company" className="rounded-full px-3 py-1 text-muted-foreground hover:text-foreground">For Companies</Link>
+            {["Stories", "Arcade", "Blog"].map(n => (
               <a key={n} href={`#${n.toLowerCase()}`} className="text-muted-foreground hover:text-foreground">{n}</a>
             ))}
           </nav>
