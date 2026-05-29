@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       { rel: "canonical", href: "/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
     ],
     scripts: [
       {
@@ -84,87 +84,89 @@ function Index() {
         </div>
       </header>
 
-      {/* Hero */}
+      {/* Hero — Bento grid */}
       <section className="relative overflow-hidden bg-hero">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-24 pt-20 lg:grid-cols-[1.1fr_0.9fr] lg:pt-28">
-          <div>
-            <p className="label-eyebrow mb-6">· India's youth · India's brands · 2026 ·</p>
-            <h1 className="text-5xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
-              Get paid by brands<br />
-              <span className="italic-accent">YOU already love.</span>
-            </h1>
-            <p className="mt-8 max-w-xl text-lg text-muted-foreground">
-              Seventy lakh young Indians work with India's biggest brands on Funngro — brand promotion, content, referrals, sampling, surveys. Get paid in UPI. Free, forever.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#download" className="inline-flex items-center gap-3 rounded-full bg-brand px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:shadow-glow">
-                Download app <span>→</span>
-              </a>
-              <a href="#how" className="inline-flex items-center gap-3 rounded-full border border-border px-6 py-3.5 text-sm hover:bg-secondary">
-                See how it works ▸
-              </a>
-              <span className="font-mono text-xs text-brand">● 481 EARNING</span>
-            </div>
-            <div className="mt-10 flex items-center gap-8 border-t border-border pt-6 text-sm">
-              <div><span className="text-brand">★</span> <span className="font-display text-xl">4.2</span> <span className="ml-1 font-mono text-xs text-muted-foreground">· PLAY STORE</span></div>
-              <div><span className="font-display text-xl">70 Lakh+</span> <span className="ml-1 font-mono text-xs text-muted-foreground">· YOUNG INDIANS EARNING</span></div>
-            </div>
-          </div>
+        <div className="mx-auto max-w-7xl px-6 pb-20 pt-16 lg:pt-20">
+          <div className="grid grid-cols-12 gap-4 auto-rows-fr">
 
-          {/* Phone mockup */}
-          <div className="relative mx-auto w-full max-w-sm">
-            <div className="absolute -inset-10 rounded-[3rem] bg-brand/20 blur-3xl" />
-            <div className="relative aspect-[9/19] rounded-[2.5rem] border-[10px] border-secondary bg-card p-4 shadow-glow">
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-mono">9:41</span>
-                <span className="font-mono opacity-60">⚡ ▮▮▮</span>
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="h-9 w-9 rounded-full bg-brand/30 grid place-items-center">👤</div>
-                  <span className="text-sm font-medium">Kushal Kahar</span>
+            {/* Main hero tile */}
+            <div className="bento-tile col-span-12 lg:col-span-8 row-span-2 relative overflow-hidden p-10 md:p-14 flex flex-col justify-center">
+              <div className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-brand/30 blur-[120px]" />
+              <div className="relative">
+                <div className="flex items-center gap-3 mb-8">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand text-primary-foreground font-bold">F</span>
+                  <span className="label-eyebrow">India's Youth · India's Brands · 2026</span>
                 </div>
-                <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-mono">Bronze Tier</span>
-              </div>
-              <div className="mt-4 text-sm font-medium">Today's Tasks <span className="float-right text-xs text-brand">View all →</span></div>
-              <div className="mt-3 grid grid-cols-2 gap-2">
-                {[["Shadow Ninja", "₹120"], ["HDFC", "₹220"]].map(([t, p]) => (
-                  <div key={t} className="rounded-xl border border-border p-3">
-                    <div className="text-xs text-muted-foreground">{t}</div>
-                    <div className="mt-1 font-display text-lg text-brand">{p}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-3 rounded-xl bg-brand/10 p-3">
-                <div className="flex items-center justify-between text-xs">
-                  <span>Toluna</span><span className="rounded bg-brand px-2 py-0.5 text-[10px] text-primary-foreground">Register</span>
+                <h1 className="text-5xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
+                  Get paid by brands{" "}
+                  <span className="italic-accent">YOU already love.</span>
+                </h1>
+                <p className="mt-8 max-w-xl text-lg text-muted-foreground">
+                  Seventy lakh young Indians work with India's biggest brands on Funngro — brand promotion, content, referrals, sampling, surveys. Get paid in UPI. Free, forever.
+                </p>
+                <div className="mt-10 flex flex-wrap items-center gap-4">
+                  <a href="#download" className="inline-flex items-center gap-2 rounded-2xl bg-brand px-7 py-4 font-bold text-primary-foreground transition hover:shadow-glow">
+                    Download app <span>→</span>
+                  </a>
+                  <a href="#how" className="inline-flex items-center gap-2 rounded-2xl border border-border bg-white/5 px-7 py-4 font-bold hover:bg-white/10">
+                    See how it works
+                  </a>
                 </div>
-                <div className="mt-1 text-sm">Complete Survey · Earn ₹200</div>
-              </div>
-              <div className="mt-3 text-sm font-medium">Explore Tasks</div>
-              <div className="mt-2 grid grid-cols-4 gap-2 text-center text-[10px]">
-                {["Register", "Games", "Fintech", "Survey"].map(c => (
-                  <div key={c} className="rounded-lg border border-border p-2">
-                    <div className="mb-1 text-base">●</div>
-                    <div>{c}</div>
-                    <div className="text-muted-foreground">50+ Tasks</div>
-                  </div>
-                ))}
               </div>
             </div>
-            {/* Floating cards */}
-            <div className="absolute -left-8 top-24 hidden rounded-xl border border-border bg-card p-3 shadow-xl lg:block">
-              <div className="font-mono text-[10px] text-brand">● LIVE · IST</div>
-              <div className="mt-1 font-mono text-[10px] text-muted-foreground">PAID THIS WEEK</div>
-              <div className="font-display text-2xl text-brand">₹14,10,462</div>
+
+            {/* Live earnings tile */}
+            <div className="bento-tile col-span-12 md:col-span-6 lg:col-span-4 row-span-2 relative overflow-hidden p-8 flex flex-col justify-between">
+              <div className="flex items-start justify-between">
+                <div className="inline-flex items-center gap-2 rounded-2xl bg-emerald-500/10 px-3 py-2 text-xs font-bold text-emerald-400">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse-dot" />
+                  LIVE EARNINGS
+                </div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">This Week</div>
+              </div>
+              <div className="my-8">
+                <div className="font-display text-5xl text-cream tracking-tight">₹14,10,462</div>
+                <p className="mt-2 text-sm text-muted-foreground">Distributed to 481 teens today</p>
+              </div>
+              <div className="flex items-center">
+                <div className="flex -space-x-3">
+                  <div className="h-10 w-10 rounded-full border-2 border-card bg-brand/40" />
+                  <div className="h-10 w-10 rounded-full border-2 border-card bg-brand-glow/40" />
+                  <div className="h-10 w-10 rounded-full border-2 border-card bg-brand/60" />
+                </div>
+                <span className="ml-3 font-mono text-xs text-muted-foreground">+4.2k active now</span>
+              </div>
             </div>
-            <div className="absolute -right-6 bottom-24 hidden rounded-xl border border-border bg-card p-3 shadow-xl lg:block">
-              <div className="font-mono text-[10px] text-muted-foreground">PAYOUT WINDOW</div>
-              <div className="font-mono text-xs text-brand">&lt; 24h · UPI / Bank</div>
+
+            {/* Stat tile — users */}
+            <div className="bento-tile col-span-6 lg:col-span-4 p-8 flex flex-col justify-center items-center text-center">
+              <div className="font-display text-5xl text-cream">70 Lakh+</div>
+              <div className="mt-2 label-eyebrow text-muted-foreground">Young Indians</div>
             </div>
+
+            {/* Stat tile — rating (indigo solid) */}
+            <div className="bento-tile col-span-6 lg:col-span-4 relative overflow-hidden p-8 flex flex-col justify-center items-center text-center" style={{ background: "var(--brand)", borderColor: "transparent" }}>
+              <div className="font-display text-5xl text-white">4.2 ★</div>
+              <div className="mt-2 font-mono text-[10px] font-bold uppercase tracking-widest text-white/80">Play Store</div>
+            </div>
+
+            {/* Backed by tile */}
+            <div className="bento-tile col-span-12 lg:col-span-4 p-8 flex items-center justify-between">
+              <div>
+                <p className="label-eyebrow mb-1">Backed by</p>
+                <p className="font-display text-base text-cream">Shark Tank India S2</p>
+              </div>
+              <div className="h-10 w-px bg-border" />
+              <div className="text-right">
+                <p className="label-eyebrow mb-1">Trusted by</p>
+                <p className="font-display text-base text-cream">HDFC, Tata & 100+</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
+
 
       {/* Brand wall */}
       <section className="border-t border-border py-24">
