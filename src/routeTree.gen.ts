@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeenRouteImport } from './routes/teen'
+import { Route as EarnRouteImport } from './routes/earn'
 import { Route as CompanyRouteImport } from './routes/company'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TeenRoute = TeenRouteImport.update({
   id: '/teen',
   path: '/teen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EarnRoute = EarnRouteImport.update({
+  id: '/earn',
+  path: '/earn',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyRoute = CompanyRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/company': typeof CompanyRoute
+  '/earn': typeof EarnRoute
   '/teen': typeof TeenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/company': typeof CompanyRoute
+  '/earn': typeof EarnRoute
   '/teen': typeof TeenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/company': typeof CompanyRoute
+  '/earn': typeof EarnRoute
   '/teen': typeof TeenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/company' | '/teen'
+  fullPaths: '/' | '/company' | '/earn' | '/teen'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/company' | '/teen'
-  id: '__root__' | '/' | '/company' | '/teen'
+  to: '/' | '/company' | '/earn' | '/teen'
+  id: '__root__' | '/' | '/company' | '/earn' | '/teen'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CompanyRoute: typeof CompanyRoute
+  EarnRoute: typeof EarnRoute
   TeenRoute: typeof TeenRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/teen'
       fullPath: '/teen'
       preLoaderRoute: typeof TeenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/earn': {
+      id: '/earn'
+      path: '/earn'
+      fullPath: '/earn'
+      preLoaderRoute: typeof EarnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/company': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CompanyRoute: CompanyRoute,
+  EarnRoute: EarnRoute,
   TeenRoute: TeenRoute,
 }
 export const routeTree = rootRouteImport

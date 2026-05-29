@@ -258,7 +258,7 @@ function Index() {
               </div>
             ))}
           </div>
-          <a href="#" className="mt-10 inline-flex font-mono text-sm text-brand hover:underline">See the 5-step deep dive ▸</a>
+          <Link to="/earn" className="mt-10 inline-flex font-mono text-sm text-brand hover:underline">See the 5-step deep dive ▸</Link>
         </div>
       </section>
 
